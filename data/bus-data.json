@@ -1,0 +1,280 @@
+{
+  "busParks": [
+    {
+      "id": "park-001",
+      "name": "Lagos Central Bus Park",
+      "city": "Lagos",
+      "state": "Lagos",
+      "contactPhone": "+234-801-234-5678",
+      "transportUnion": "Lagos State Transport Union",
+      "latitude": 6.5244,
+      "longitude": 3.3792,
+      "address": "Ikeja, Lagos State"
+    },
+    {
+      "id": "park-002",
+      "name": "Abuja Main Terminal",
+      "city": "Abuja",
+      "state": "FCT",
+      "contactPhone": "+234-802-345-6789",
+      "transportUnion": "FCT Transport Association",
+      "latitude": 9.0765,
+      "longitude": 7.3986,
+      "address": "Wuse, Abuja"
+    },
+    {
+      "id": "park-003",
+      "name": "Ibadan Motor Park",
+      "city": "Ibadan",
+      "state": "Oyo",
+      "contactPhone": "+234-803-456-7890",
+      "transportUnion": "Oyo State Transport Union",
+      "latitude": 7.3775,
+      "longitude": 3.9470,
+      "address": "Mokola, Ibadan"
+    },
+    {
+      "id": "park-004",
+      "name": "Port Harcourt Central Park",
+      "city": "Port Harcourt",
+      "state": "Rivers",
+      "contactPhone": "+234-804-567-8901",
+      "transportUnion": "Rivers State Transport Union",
+      "latitude": 4.8156,
+      "longitude": 7.0498,
+      "address": "Rumuokoro, Port Harcourt"
+    },
+    {
+      "id": "park-005",
+      "name": "Kano Central Bus Station",
+      "city": "Kano",
+      "state": "Kano",
+      "contactPhone": "+234-805-678-9012",
+      "transportUnion": "Kano State Transport Union",
+      "latitude": 12.0022,
+      "longitude": 8.5919,
+      "address": "Sabon Gari, Kano"
+    },
+    {
+      "id": "park-006",
+      "name": "Enugu Main Park",
+      "city": "Enugu",
+      "state": "Enugu",
+      "contactPhone": "+234-806-789-0123",
+      "transportUnion": "Enugu State Transport Union",
+      "latitude": 6.4413,
+      "longitude": 7.4983,
+      "address": "Ogbete, Enugu"
+    },
+    {
+      "id": "park-007",
+      "name": "Kaduna Central Terminal",
+      "city": "Kaduna",
+      "state": "Kaduna",
+      "contactPhone": "+234-807-890-1234",
+      "transportUnion": "Kaduna State Transport Union",
+      "latitude": 10.5105,
+      "longitude": 7.4165,
+      "address": "Kaduna Central"
+    },
+    {
+      "id": "park-008",
+      "name": "Benin City Motor Park",
+      "city": "Benin City",
+      "state": "Edo",
+      "contactPhone": "+234-808-901-2345",
+      "transportUnion": "Edo State Transport Union",
+      "latitude": 6.3350,
+      "longitude": 5.6037,
+      "address": "Ring Road, Benin City"
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-001",
+      "departureParkId": "park-001",
+      "departureParkName": "Lagos Central Bus Park",
+      "destination": "Abuja",
+      "estimatedFareMin": 5000,
+      "estimatedFareMax": 8000,
+      "routeName": "Lagos-Abuja Express"
+    },
+    {
+      "id": "route-002",
+      "departureParkId": "park-001",
+      "departureParkName": "Lagos Central Bus Park",
+      "destination": "Ibadan",
+      "estimatedFareMin": 1500,
+      "estimatedFareMax": 2500,
+      "routeName": "Lagos-Ibadan Route"
+    },
+    {
+      "id": "route-003",
+      "departureParkId": "park-001",
+      "departureParkName": "Lagos Central Bus Park",
+      "destination": "Port Harcourt",
+      "estimatedFareMin": 4000,
+      "estimatedFareMax": 6000,
+      "routeName": "Lagos-Port Harcourt Route"
+    },
+    {
+      "id": "route-004",
+      "departureParkId": "park-002",
+      "departureParkName": "Abuja Main Terminal",
+      "destination": "Lagos",
+      "estimatedFareMin": 5000,
+      "estimatedFareMax": 8000,
+      "routeName": "Abuja-Lagos Express"
+    },
+    {
+      "id": "route-005",
+      "departureParkId": "park-002",
+      "departureParkName": "Abuja Main Terminal",
+      "destination": "Kano",
+      "estimatedFareMin": 3500,
+      "estimatedFareMax": 5500,
+      "routeName": "Abuja-Kano Route"
+    },
+    {
+      "id": "route-006",
+      "departureParkId": "park-002",
+      "departureParkName": "Abuja Main Terminal",
+      "destination": "Kaduna",
+      "estimatedFareMin": 2000,
+      "estimatedFareMax": 3500,
+      "routeName": "Abuja-Kaduna Route"
+    },
+    {
+      "id": "route-007",
+      "departureParkId": "park-003",
+      "departureParkName": "Ibadan Motor Park",
+      "destination": "Lagos",
+      "estimatedFareMin": 1500,
+      "estimatedFareMax": 2500,
+      "routeName": "Ibadan-Lagos Route"
+    },
+    {
+      "id": "route-008",
+      "departureParkId": "park-003",
+      "departureParkName": "Ibadan Motor Park",
+      "destination": "Abuja",
+      "estimatedFareMin": 4000,
+      "estimatedFareMax": 6000,
+      "routeName": "Ibadan-Abuja Route"
+    },
+    {
+      "id": "route-009",
+      "departureParkId": "park-004",
+      "departureParkName": "Port Harcourt Central Park",
+      "destination": "Lagos",
+      "estimatedFareMin": 4000,
+      "estimatedFareMax": 6000,
+      "routeName": "Port Harcourt-Lagos Route"
+    },
+    {
+      "id": "route-010",
+      "departureParkId": "park-004",
+      "departureParkName": "Port Harcourt Central Park",
+      "destination": "Enugu",
+      "estimatedFareMin": 2500,
+      "estimatedFareMax": 4000,
+      "routeName": "Port Harcourt-Enugu Route"
+    },
+    {
+      "id": "route-011",
+      "departureParkId": "park-005",
+      "departureParkName": "Kano Central Bus Station",
+      "destination": "Abuja",
+      "estimatedFareMin": 3500,
+      "estimatedFareMax": 5500,
+      "routeName": "Kano-Abuja Route"
+    },
+    {
+      "id": "route-012",
+      "departureParkId": "park-005",
+      "departureParkName": "Kano Central Bus Station",
+      "destination": "Kaduna",
+      "estimatedFareMin": 2000,
+      "estimatedFareMax": 3000,
+      "routeName": "Kano-Kaduna Route"
+    },
+    {
+      "id": "route-013",
+      "departureParkId": "park-006",
+      "departureParkName": "Enugu Main Park",
+      "destination": "Lagos",
+      "estimatedFareMin": 4500,
+      "estimatedFareMax": 6500,
+      "routeName": "Enugu-Lagos Route"
+    },
+    {
+      "id": "route-014",
+      "departureParkId": "park-006",
+      "departureParkName": "Enugu Main Park",
+      "destination": "Port Harcourt",
+      "estimatedFareMin": 2500,
+      "estimatedFareMax": 4000,
+      "routeName": "Enugu-Port Harcourt Route"
+    },
+    {
+      "id": "route-015",
+      "departureParkId": "park-007",
+      "departureParkName": "Kaduna Central Terminal",
+      "destination": "Abuja",
+      "estimatedFareMin": 2000,
+      "estimatedFareMax": 3500,
+      "routeName": "Kaduna-Abuja Route"
+    },
+    {
+      "id": "route-016",
+      "departureParkId": "park-008",
+      "departureParkName": "Benin City Motor Park",
+      "destination": "Lagos",
+      "estimatedFareMin": 3000,
+      "estimatedFareMax": 4500,
+      "routeName": "Benin-Lagos Route"
+    }
+  ],
+  "transportUnions": [
+    {
+      "name": "Lagos State Transport Union",
+      "contactPhone": "+234-801-234-5678",
+      "email": "info@lagostransportunion.ng"
+    },
+    {
+      "name": "FCT Transport Association",
+      "contactPhone": "+234-802-345-6789",
+      "email": "info@fcttransport.ng"
+    },
+    {
+      "name": "Oyo State Transport Union",
+      "contactPhone": "+234-803-456-7890",
+      "email": "info@oyotransport.ng"
+    },
+    {
+      "name": "Rivers State Transport Union",
+      "contactPhone": "+234-804-567-8901",
+      "email": "info@riverstransport.ng"
+    },
+    {
+      "name": "Kano State Transport Union",
+      "contactPhone": "+234-805-678-9012",
+      "email": "info@kanotransport.ng"
+    },
+    {
+      "name": "Enugu State Transport Union",
+      "contactPhone": "+234-806-789-0123",
+      "email": "info@enugutransport.ng"
+    },
+    {
+      "name": "Kaduna State Transport Union",
+      "contactPhone": "+234-807-890-1234",
+      "email": "info@kadunatransport.ng"
+    },
+    {
+      "name": "Edo State Transport Union",
+      "contactPhone": "+234-808-901-2345",
+      "email": "info@edotransport.ng"
+    }
+  ]
+}

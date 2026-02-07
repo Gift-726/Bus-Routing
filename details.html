@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details - Bus Park & Route Information</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🚌 BusInfo</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="parks.html">Parks</a></li>
+                <li><a href="routes.html">Routes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <a href="javascript:history.back()" class="back-button">← Back</a>
+        
+        <div id="details-content">
+            <div class="empty-state">
+                <h3>Loading details...</h3>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bus Park & Route Information System. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

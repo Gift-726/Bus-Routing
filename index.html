@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Park & Route Information - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🚌 BusInfo</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="parks.html">Parks</a></li>
+                <li><a href="routes.html">Routes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Bus Park & Route Information</h1>
+            <p>Find bus parks, routes, fares, and contact information all in one place</p>
+        </section>
+
+        <section class="search-container">
+            <form id="global-search-form" class="search-bar">
+                <input type="text" id="global-search-input" placeholder="Search parks, routes, or destinations..."
+                    required>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section class="featured-section">
+            <h2>Featured Bus Parks</h2>
+            <div id="featured-parks" class="cards-grid"></div>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="parks.html" class="back-button">View All Parks</a>
+            </div>
+        </section>
+
+        <section class="featured-section">
+            <h2>Popular Routes</h2>
+            <div id="featured-routes" class="cards-grid"></div>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="routes.html" class="back-button">View All Routes</a>
+            </div>
+        </section>
+
+        <section class="details-container" style="margin-top: 3rem;">
+            <h2>About This Application</h2>
+            <p style="margin-bottom: 1rem;">
+                Welcome to BusInfo, your comprehensive guide to bus parks and transport routes across Nigeria.
+                Our platform helps you:
+            </p>
+            <ul style="list-style-position: inside; line-height: 2;">
+                <li>Find bus parks by city and state</li>
+                <li>Discover available routes and estimated fares</li>
+                <li>Get contact information for transport unions</li>
+                <li>View bus park locations on interactive maps</li>
+                <li>Search for parks and routes quickly and easily</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bus Park & Route Information System. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
