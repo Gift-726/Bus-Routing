@@ -163,33 +163,65 @@ function applyParkFilters() {
     displayAllParks(filtered);
 }
 
-// Routes Page Functions
+// ============================================
+// ROUTES PAGE FUNCTIONS
+// ============================================
+// These functions handle the routes page functionality including:
+// - Displaying routes in a responsive grid layout
+// - Creating styled route cards with hover effects
+// - Filtering routes by departure park
+// - Search functionality integration
+// ============================================
+
+/**
+ * Initialize the routes page
+ * Sets up route display and filter functionality
+ */
 function initRoutesPage() {
     displayAllRoutes();
     initRouteFilters();
 }
 
+/**
+ * Display all routes in a responsive grid container
+ * @param {Array} filteredRoutes - Optional filtered routes array, defaults to all routes
+ */
 function displayAllRoutes(filteredRoutes = null) {
     if (!busData) return;
-
+    
     const routesContainer = document.getElementById('routes-container');
     if (!routesContainer) return;
-
+    
     routesContainer.innerHTML = '';
-
+    
     const routesToDisplay = filteredRoutes || busData.routes;
-
+    
+    // Show empty state if no routes found
     if (routesToDisplay.length === 0) {
         routesContainer.innerHTML = '<div class="empty-state"><h3>No routes found</h3><p>Try adjusting your search or filters</p></div>';
         return;
     }
-
+    
+    // Create and append route cards
     routesToDisplay.forEach(route => {
         const card = createRouteCard(route, true);
         routesContainer.appendChild(card);
     });
 }
 
+/**
+ * Create a styled route card element
+ * @param {Object} route - Route object with destination, fare, etc.
+ * @param {Boolean} clickable - Whether the card should be clickable (link)
+ * @returns {HTMLElement} - The created route card element
+ * 
+ * Route cards feature:
+ * - Destination with location icon
+ * - Prominent fare range badge
+ * - Departure park information
+ * - Route name
+ * - Hover effects and smooth transitions
+ */
 function createRouteCard(route, clickable = false) {
     const card = document.createElement(clickable ? 'a' : 'div');
     if (clickable) {
@@ -198,10 +230,12 @@ function createRouteCard(route, clickable = false) {
     } else {
         card.className = 'card';
     }
-
+    
+    // Format fare range with Nigerian Naira symbol
     const fareRange = `₦${route.estimatedFareMin.toLocaleString()} - ₦${route.estimatedFareMax.toLocaleString()}`;
-
+    
     if (clickable) {
+        // Styled route card for routes page (with hover effects)
         card.innerHTML = `
             <div class="route-header">
                 <div class="route-destination">${route.destination}</div>
@@ -213,6 +247,7 @@ function createRouteCard(route, clickable = false) {
             </div>
         `;
     } else {
+        // Simple card for featured routes on home page
         card.innerHTML = `
             <h3>${route.routeName}</h3>
             <p><strong>From:</strong> ${route.departureParkName}</p>
@@ -220,15 +255,19 @@ function createRouteCard(route, clickable = false) {
             <p><strong>Fare:</strong> ${fareRange}</p>
         `;
     }
-
+    
     return card;
 }
 
+/**
+ * Initialize route filters
+ * Populates the departure park filter dropdown with unique park names
+ */
 function initRouteFilters() {
     const parkFilter = document.getElementById('park-filter');
-
+    
     if (parkFilter) {
-        // Populate park filter
+        // Get unique departure park names and sort alphabetically
         const parks = [...new Set(busData.routes.map(r => r.departureParkName))].sort();
         parks.forEach(parkName => {
             const option = document.createElement('option');
@@ -236,20 +275,27 @@ function initRouteFilters() {
             option.textContent = parkName;
             parkFilter.appendChild(option);
         });
-
+        
+        // Add event listener for filter changes
         parkFilter.addEventListener('change', applyRouteFilters);
     }
 }
 
+/**
+ * Apply route filters based on selected departure park
+ * Updates the displayed routes when filter changes
+ */
 function applyRouteFilters() {
     const parkFilter = document.getElementById('park-filter');
-
+    
     let filtered = busData.routes;
-
+    
+    // Filter by departure park if a specific park is selected
     if (parkFilter && parkFilter.value !== 'all') {
         filtered = filtered.filter(r => r.departureParkName === parkFilter.value);
     }
-
+    
+    // Update display with filtered results
     displayAllRoutes(filtered);
 }
 
@@ -353,7 +399,7 @@ function displayRouteDetails(routeId) {
         <div class="details-container">
             <div class="details-header">
                 <h1>${route.routeName}</h1>
-                <p>${route.departureParkName} → ${route.destination}</p>
+                <p>${route.departureParkName} to ${route.destination}</p>
             </div>
             
             <div class="details-section">
