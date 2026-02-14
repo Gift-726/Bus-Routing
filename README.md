@@ -50,10 +50,17 @@ A responsive web application that provides comprehensive information about bus p
 - Search functionality
 
 ### 3. Routes Page (`routes.html`)
-- List of available routes
-- Display destinations and estimated fares
+- List of available routes in a responsive grid layout
+- Display destinations and estimated fares with styled cards
+- Each route card shows:
+  - Destination with location icon
+  - Fare range in a prominent badge
+  - Departure park information
+  - Route name
 - Filter by departure park
 - Search functionality
+- Hover effects and smooth transitions
+- Fully responsive design for all screen sizes
 
 ### 4. Details Page (`details.html`)
 - Full details of a selected bus park or route
@@ -213,11 +220,39 @@ Edit `data/bus-data.json` and add new entries to the `routes` array. Make sure t
 - Include fare ranges in Nigerian Naira (₦)
 
 ### Styling
+
+The application uses a modern, clean design with comprehensive styling:
+
+#### Routes Section Styling
+The routes page features specially designed route cards with:
+- **Route Cards**: Each route is displayed in a card with:
+  - Left border accent that appears on hover
+  - Destination with location indicator
+  - Prominent fare range badge with gradient background
+  - Departure park and route name information
+  - Smooth hover animations and transitions
+  - Responsive grid layout that adapts to screen size
+
+- **Visual Elements**:
+  - Gradient fare badges (orange theme)
+  - Hover effects with subtle background gradient
+  - Touch-friendly tap targets (minimum 44px)
+  - Clear typography hierarchy
+  - Consistent spacing and padding
+
+- **Responsive Behavior**:
+  - Desktop: Multi-column grid (3-4 columns)
+  - Tablet: 2 columns with adjusted spacing
+  - Mobile: Single column, full-width cards
+  - Fare badges expand to full width on mobile
+
+#### General Styling
 Modify `css/style.css` to customize:
 - Colors (CSS variables in `:root`)
 - Layout and spacing
 - Typography
 - Responsive breakpoints
+- Route card styles (see "Routes Section Styling" comments in CSS)
 
 ## Browser Compatibility
 
@@ -229,15 +264,53 @@ Modify `css/style.css` to customize:
 
 ## Responsive Design
 
-The application is fully responsive and works on:
-- Desktop computers
-- Tablets
-- Mobile phones
+The application is fully responsive and optimized for all device types with comprehensive breakpoints:
 
-Breakpoints:
-- Desktop: > 768px
-- Tablet: 481px - 768px
-- Mobile: ≤ 480px
+### Device Support
+- **Large Desktop**: 1025px and above (3-4 column layouts)
+- **Desktop/Tablet Landscape**: 769px - 1024px (2-3 column layouts)
+- **Tablet Portrait**: 481px - 768px (1-2 column layouts)
+- **Mobile**: ≤ 480px (single column, optimized for touch)
+
+### Responsive Features
+
+#### Routes Page
+- **Desktop**: Grid layout with 3-4 columns (350px minimum per card)
+- **Tablet**: 2 columns with adjusted spacing
+- **Mobile**: Single column with full-width cards
+- Route cards feature:
+  - Hover animations with left border accent
+  - Responsive fare badges
+  - Touch-friendly tap targets
+  - Optimized typography for readability
+
+#### Parks Page
+- **Desktop**: Grid layout with 3-4 columns (320px minimum per card)
+- **Tablet**: 2 columns
+- **Mobile**: Single column with stacked layout
+
+#### Navigation
+- **Desktop**: Horizontal navigation bar
+- **Mobile**: Stacked navigation with centered alignment
+- Sticky header for easy access on all pages
+
+#### Search & Filters
+- **Desktop**: Horizontal layout with inline filters
+- **Mobile**: Stacked vertical layout with full-width inputs
+- Touch-optimized buttons and form elements
+
+#### Maps
+- **Desktop**: 450px height
+- **Tablet**: 300px height
+- **Mobile**: 250px height
+- Fully responsive with proper viewport handling
+
+### CSS Architecture
+- CSS Custom Properties (Variables) for easy theming
+- Mobile-first approach with progressive enhancement
+- Flexible Grid and Flexbox layouts
+- Smooth transitions and animations
+- Consistent spacing system
 
 ## Deployment
 
