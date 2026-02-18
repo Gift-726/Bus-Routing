@@ -15,7 +15,12 @@
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo">BusInfo</a>
+            <a href="index.html" class="logo"><span class="logo-text">BusInfo</span></a>
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="parks.html">Parks</a></li>
@@ -23,6 +28,21 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo"><span class="logo-text">BusInfo</span></a>
+            <button class="close-menu" id="close-menu" aria-label="Close menu">
+                <span>&times;</span>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="parks.html">Parks</a></li>
+            <li><a href="routes.html">Routes</a></li>
+        </ul>
+    </div>
 
     <main>
         <section class="hero">
@@ -71,7 +91,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Bus Park & Route Information System. All rights reserved.</p>
+        <p>&copy; 2026 Bus Park & Route Information System. All rights reserved.</p>
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

@@ -20,8 +20,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Get current page
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
+    // Set active navbar link
+    setActiveNavLink(currentPage);
+
     // Initialize page-specific functionality
-    if (currentPage === 'index.html' || currentPage === '') {
+    if (currentPage === '' || currentPage === 'index.html') {
         initHomePage();
     } else if (currentPage === 'parks.html') {
         initParksPage();
@@ -33,7 +36,58 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Initialize global search
     initGlobalSearch();
+
+    // Initialize mobile menu
+    initMobileMenu();
+
+    // Prevent page refresh on home link click (prevent default for internal navigation)
+    preventPageReload();
 });
+
+// Set active navbar link based on current page
+function setActiveNavLink(currentPage) {
+    // Remove active class from all nav links
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        link.removeAttribute('aria-current');
+    });
+
+    // Add active class to current page link
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+        }
+    });
+}
+
+// Prevent page reload on home link click (with caching for better performance)
+function preventPageReload() {
+    const homeLink = document.querySelector('a[href="index.html"]');
+    const logoLink = document.querySelector('.logo');
+
+    // Cache data in sessionStorage for faster subsequent loads
+    if (busData && !sessionStorage.getItem('busDataCached')) {
+        sessionStorage.setItem('busDataCached', JSON.stringify(busData));
+    }
+
+    // Prevent reload when clicking home while already on home page
+    [homeLink, logoLink].forEach(link => {
+        if (link) {
+            link.addEventListener('click', (e) => {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                if (currentPage === 'index.html' || currentPage === '') {
+                    e.preventDefault();
+                    setActiveNavLink('index.html');
+                    // Scroll to top smoothly
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        }
+    });
+}
 
 // Home Page Functions
 function initHomePage() {
@@ -188,20 +242,20 @@ function initRoutesPage() {
  */
 function displayAllRoutes(filteredRoutes = null) {
     if (!busData) return;
-    
+
     const routesContainer = document.getElementById('routes-container');
     if (!routesContainer) return;
-    
+
     routesContainer.innerHTML = '';
-    
+
     const routesToDisplay = filteredRoutes || busData.routes;
-    
+
     // Show empty state if no routes found
     if (routesToDisplay.length === 0) {
         routesContainer.innerHTML = '<div class="empty-state"><h3>No routes found</h3><p>Try adjusting your search or filters</p></div>';
         return;
     }
-    
+
     // Create and append route cards
     routesToDisplay.forEach(route => {
         const card = createRouteCard(route, true);
@@ -230,10 +284,10 @@ function createRouteCard(route, clickable = false) {
     } else {
         card.className = 'card';
     }
-    
+
     // Format fare range with Nigerian Naira symbol
     const fareRange = `₦${route.estimatedFareMin.toLocaleString()} - ₦${route.estimatedFareMax.toLocaleString()}`;
-    
+
     if (clickable) {
         // Styled route card for routes page (with hover effects)
         card.innerHTML = `
@@ -255,7 +309,7 @@ function createRouteCard(route, clickable = false) {
             <p><strong>Fare:</strong> ${fareRange}</p>
         `;
     }
-    
+
     return card;
 }
 
@@ -265,7 +319,7 @@ function createRouteCard(route, clickable = false) {
  */
 function initRouteFilters() {
     const parkFilter = document.getElementById('park-filter');
-    
+
     if (parkFilter) {
         // Get unique departure park names and sort alphabetically
         const parks = [...new Set(busData.routes.map(r => r.departureParkName))].sort();
@@ -275,7 +329,7 @@ function initRouteFilters() {
             option.textContent = parkName;
             parkFilter.appendChild(option);
         });
-        
+
         // Add event listener for filter changes
         parkFilter.addEventListener('change', applyRouteFilters);
     }
@@ -287,14 +341,14 @@ function initRouteFilters() {
  */
 function applyRouteFilters() {
     const parkFilter = document.getElementById('park-filter');
-    
+
     let filtered = busData.routes;
-    
+
     // Filter by departure park if a specific park is selected
     if (parkFilter && parkFilter.value !== 'all') {
         filtered = filtered.filter(r => r.departureParkName === parkFilter.value);
     }
-    
+
     // Update display with filtered results
     displayAllRoutes(filtered);
 }
@@ -531,4 +585,44 @@ function initGlobalSearch() {
             displayAllRoutes(routeResults);
         }
     }
+}
+
+// Mobile Menu Functions
+function initMobileMenu() {
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const closeMenuButton = document.getElementById('close-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+
+    // Open mobile menu
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('active');
+            document.body.classList.add('menu-open');
+        });
+    }
+
+    // Close mobile menu
+    if (closeMenuButton) {
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    }
+
+    // Close menu when clicking on a link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+
+    // Close menu when clicking outside
+    mobileMenuOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileMenuOverlay) {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
 }

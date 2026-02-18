@@ -1,0 +1,4 @@
+--Add images
+--Add BI to logo box make it not overlap
+-- let index.html not refresh always cache some storage
+--2024-2026 copyright
